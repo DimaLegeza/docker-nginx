@@ -6,7 +6,7 @@ This image is a simple configuration of the [Nginx](https://nginx.org/en/) HTTP 
 
 ## Building container
 ```
-docker build --build-arg HTTP_PROXY=$HTTP_PROXY --build-arg NO_PROXY=$NO_PROXY --build-arg VERSION=1.14.2 -t dimalegeza/nginxdemo .
+docker build --build-arg HTTP_PROXY=$HTTP_PROXY --build-arg NO_PROXY=$NO_PROXY --build-arg VERSION=1.14.2 -t dimalegeza/nginxdemo-multistage .
 ```
 
 ## Running a container
@@ -14,5 +14,5 @@ docker build --build-arg HTTP_PROXY=$HTTP_PROXY --build-arg NO_PROXY=$NO_PROXY -
 The content and configuration of Nginx is simplistic, and can be invoked with:
 
 ```
-$ docker container run --rm -d -p 80:80 dimalegeza/nginxdemo
+$ docker container run --name=nginx -d -p 80:80 dimalegeza/nginxdemo-multistage
 ```
