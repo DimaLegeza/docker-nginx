@@ -1,0 +1,9 @@
+version: '2.4'
+services:
+
+  nginx:
+    image: dimalegeza/nginxdemo-kubernetes
+    volumes:
+      - "./content:/usr/local/nginx/html"
+    ports:
+      - "80:80"

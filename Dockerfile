@@ -46,7 +46,6 @@ RUN set -x                                                                      
     ln -sf /dev/stderr /usr/local/nginx/logs/error.log
 
 # Customise static content, and configuration
-COPY index.html /usr/local/nginx/html/
 COPY nginx.conf /usr/local/nginx/conf/
 
 # Add entrypoint script

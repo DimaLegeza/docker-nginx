@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+spec:
+  replicas: 10
+  volumes:
+    - name: index-file-vol
+      hostPath:
+        path: ../content
+  selector:
+    matchLabels:
+      app: nginx
+      tier: backend
+      track: stable
+  template:
+    metadata:
+      labels:
+        app: nginx
+        tier: backend
+        track: stable
+        version: 1.0.0.beta
+    spec:
+      containers:
+        - name: homemade-nginx
+          image: dimalegeza/nginxdemo-kubernetes
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: index-file-vol
+              mountPath: /usr/local/nginx/html
