@@ -5,14 +5,21 @@ This image is a simple configuration of the [Nginx](https://nginx.org/en/) HTTP 
 # How to use this image
 
 ## Building container
-```
-docker build --build-arg HTTP_PROXY=$HTTP_PROXY --build-arg NO_PROXY=$NO_PROXY --build-arg VERSION=1.14.2 -t dimalegeza/nginxdemo .
+```bash
+docker build --build-arg HTTP_PROXY=$HTTP_PROXY --build-arg NO_PROXY=$NO_PROXY --build-arg VERSION=1.14.2 -t dimalegeza/nginxdemo-kubernetes .
 ```
 
 ## Running a container
 
+### docker
+
 The content and configuration of Nginx is simplistic, and can be invoked with:
 
+```bash
+docker container run --rm -d -p 80:80 dimalegeza/nginxdemo-kubernetes
 ```
-$ docker container run --rm -d -p 80:80 dimalegeza/nginxdemo
+
+### docker-compose
+```bash
+docker-compose up -d nginx
 ```

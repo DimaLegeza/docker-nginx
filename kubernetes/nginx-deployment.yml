@@ -4,10 +4,6 @@ metadata:
   name: nginx-deployment
 spec:
   replicas: 10
-  volumes:
-    - name: index-file-vol
-      hostPath:
-        path: ../content
   selector:
     matchLabels:
       app: nginx
@@ -29,3 +25,10 @@ spec:
           volumeMounts:
             - name: index-file-vol
               mountPath: /usr/local/nginx/html
+      volumes:
+        - name: index-file-vol
+          hostPath:
+            # directory location on host
+            path: /Users/dimalegeza/DevTools/docker/docker-nginx/content
+            # this field is optional
+            type: Directory
